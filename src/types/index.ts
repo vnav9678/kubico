@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: 'Raised Beds' | 'Wall Planters' | 'Corner Units' | 'Accessories';
+  category: 'Camas de cultivo' | 'Jardineras de pared' | 'Unidades de esquina' | 'Accesorios';
   description: string;
   shortDescription: string;
   price: number;

@@ -1,90 +1,90 @@
-# Kubico – Modular Garden Planters
+# Kubico – Jardineras modulares de madera
 
-Kubico is an online shop for modular, sustainably sourced timber garden planters. Customers can browse a full product catalogue, use a step-by-step configurator to design a custom planter, generate a printable quote, and complete a checkout flow — all within a single-page React application.
+Kubico es una tienda en línea de jardineras modulares fabricadas con madera de origen sostenible. Desde esta aplicación puedes explorar el catálogo completo de productos, usar el configurador paso a paso para diseñar tu jardinera personalizada, generar un presupuesto imprimible y completar el proceso de compra — todo sin necesidad de conexión a internet una vez instalado.
 
 ---
 
-## Prerequisites – Installing Node.js on Windows 11
+## Requisitos previos — Instalar Node.js en Windows 11
 
-Before running the project you need Node.js (version 18 or later) installed on your machine.
+Antes de ejecutar el proyecto necesitas tener instalado Node.js (versión 18 o superior) en tu ordenador.
 
-**Step-by-step instructions (PowerShell):**
+**Instrucciones paso a paso (PowerShell):**
 
-1. Open PowerShell as Administrator (right-click the Start button → "Windows PowerShell (Admin)").
-2. Check whether Node.js is already installed:
+1. Abre PowerShell como Administrador (haz clic con el botón derecho en el botón Inicio → «Windows PowerShell (Administrador)»).
+2. Comprueba si Node.js ya está instalado:
    ```
    node --version
    ```
-   If you see a version number (e.g. `v22.0.0`) you can skip to the next section.
-3. Download the Node.js installer from the official site:
-   - Visit https://nodejs.org in your browser.
-   - Click the **"LTS"** download button (recommended for most users).
-   - Run the downloaded `.msi` file and follow the installation wizard (accept all defaults).
-4. Close and reopen PowerShell, then verify the installation:
+   Si aparece un número de versión (por ejemplo `v22.0.0`) puedes saltar al siguiente apartado.
+3. Descarga el instalador de Node.js desde la web oficial:
+   - Visita https://nodejs.org en tu navegador.
+   - Haz clic en el botón de descarga **«LTS»** (recomendado para la mayoría de usuarios).
+   - Ejecuta el archivo `.msi` descargado y sigue el asistente de instalación (acepta todas las opciones predeterminadas).
+4. Cierra PowerShell y vuelve a abrirlo; a continuación comprueba la instalación:
    ```
    node --version
    npm --version
    ```
-   Both commands should print version numbers.
+   Ambos comandos deben mostrar números de versión.
 
 ---
 
-## Running the Project on Windows 11
+## Ejecutar el proyecto en Windows 11
 
-1. Open PowerShell (no administrator rights needed this time).
-2. Navigate to the Kubico project folder:
+1. Abre PowerShell (sin necesidad de permisos de administrador esta vez).
+2. Navega hasta la carpeta del proyecto Kubico:
    ```
-   cd C:\path\to\kubico
+   cd C:\ruta\hasta\kubico
    ```
-   Replace `C:\path\to\kubico` with the actual path where you saved the project, for example:
+   Sustituye `C:\ruta\hasta\kubico` por la ruta real donde guardaste el proyecto; por ejemplo:
    ```
-   cd C:\Users\YourName\Downloads\kubico
+   cd C:\Users\TuNombre\Downloads\kubico
    ```
-3. Install the project dependencies:
+3. Instala las dependencias del proyecto:
    ```
    npm install
    ```
-   This may take a minute. You will see a progress bar and some messages — that is normal.
-4. Start the development server:
+   Esto puede tardar un minuto. Verás una barra de progreso y algunos mensajes — es normal.
+4. Inicia el servidor de desarrollo:
    ```
    npm run dev
    ```
-   You will see output similar to:
+   Verás una salida similar a esta:
    ```
-   VITE v8.x.x  ready in 300 ms
+   VITE v8.x.x  listo en 300 ms
    ➜  Local:   http://localhost:5173/
    ```
 
 ---
 
-## Opening the App in Your Browser
+## Abrir la aplicación en el navegador
 
-Once the server is running, open your web browser and go to:
+Una vez que el servidor esté en marcha, abre tu navegador web y accede a:
 
 ```
 http://localhost:5173
 ```
 
-The Kubico app will load. You can browse products, use the configurator, add items to the cart, and go through the checkout flow.
+La aplicación Kubico se cargará. Puedes explorar los productos, usar el configurador, añadir artículos al carrito y completar el proceso de compra.
 
 ---
 
-## Stopping the Server
+## Detener el servidor
 
-To stop the development server, return to the PowerShell window where it is running and press:
+Para detener el servidor de desarrollo, vuelve a la ventana de PowerShell donde está en ejecución y pulsa:
 
 ```
 Ctrl + C
 ```
 
-Type `Y` and press Enter if PowerShell asks you to confirm. The server will stop.
+Escribe `S` y pulsa Intro si PowerShell te pide confirmación. El servidor se detendrá.
 
 ---
 
-## Tech Stack (for developers)
+## Pila tecnológica (para desarrolladores)
 
 - React 18 + TypeScript
-- Vite 8 (build tool)
-- Tailwind CSS v4 (styling)
-- React Router v6 (navigation)
-- localStorage (cart persistence, no backend required)
+- Vite 8 (herramienta de compilación)
+- Tailwind CSS v4 (estilos)
+- React Router v6 (navegación)
+- localStorage (persistencia del carrito, sin backend)

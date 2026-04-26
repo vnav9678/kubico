@@ -17,8 +17,8 @@ const features = [
         <rect x="14" y="13" width="8" height="8" rx="1" />
       </svg>
     ),
-    title: 'Modular Design',
-    desc: 'Every Kubico planter snaps together without tools. Mix and match units to create your ideal garden layout.',
+    title: 'Diseño modular',
+    desc: 'Cada jardinera Kubico encaja sin herramientas. Combina y mezcla unidades para crear el jardín ideal.',
   },
   {
     icon: (
@@ -27,8 +27,8 @@ const features = [
         <path d="M12 6v6l4 2" />
       </svg>
     ),
-    title: 'Sustainably Sourced',
-    desc: 'All timber is FSC-certified and sourced from managed forests. We plant two trees for every order placed.',
+    title: 'Madera sostenible',
+    desc: 'Toda la madera está certificada FSC y proviene de bosques gestionados. Plantamos dos árboles por cada pedido.',
   },
   {
     icon: (
@@ -37,8 +37,8 @@ const features = [
         <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4 12.5-12.5z" />
       </svg>
     ),
-    title: 'Fully Configurable',
-    desc: 'Choose your size, finish, and accessories using our online configurator. Get a custom quote instantly.',
+    title: 'Totalmente configurable',
+    desc: 'Elige tu tamaño, acabado y accesorios con nuestro configurador en línea. Obtén un presupuesto al instante.',
   },
   {
     icon: (
@@ -47,33 +47,33 @@ const features = [
         <path d="M21 21H3" />
       </svg>
     ),
-    title: 'Easy Assembly',
-    desc: 'Pre-drilled, numbered components and a clear guide mean most beds are assembled in under 30 minutes.',
+    title: 'Montaje sencillo',
+    desc: 'Piezas pretaladradas y numeradas con una guía clara permiten montar la mayoría de camas en menos de 30 minutos.',
   },
 ];
 
 const categories = [
   {
-    name: 'Raised Beds',
-    description: 'Deep-rooted growing for vegetables, herbs, and flowers',
+    name: 'Camas de cultivo',
+    description: 'Cultivo en profundidad para verduras, hierbas y flores',
     color: '#8B5E3C',
     accent: '#2D6A4F',
   },
   {
-    name: 'Wall Planters',
-    description: 'Transform vertical surfaces into living green walls',
+    name: 'Jardineras de pared',
+    description: 'Convierte superficies verticales en paredes verdes vivas',
     color: '#2D6A4F',
     accent: '#40916C',
   },
   {
-    name: 'Corner Units',
-    description: 'Make the most of awkward corners with L-shaped beds',
+    name: 'Unidades de esquina',
+    description: 'Aprovecha al máximo los rincones con camas en forma de L',
     color: '#374151',
     accent: '#8B5E3C',
   },
   {
-    name: 'Accessories',
-    description: 'Trellises, irrigation kits, wheels, and more',
+    name: 'Accesorios',
+    description: 'Enrejados, kits de riego, ruedas y mucho más',
     color: '#40916C',
     accent: '#F8F5F0',
   },
@@ -81,19 +81,19 @@ const categories = [
 
 const testimonials = [
   {
-    text: 'I built two medium beds in an afternoon. The instructions were crystal clear and the timber quality is outstanding. My tomatoes have never been happier!',
-    author: 'Sarah M.',
-    location: 'Amsterdam, NL',
+    text: 'Monté dos camas medianas en una tarde. Las instrucciones eran clarísimas y la calidad de la madera es excepcional. ¡Mis tomates nunca habían estado tan contentos!',
+    author: 'Sara M.',
+    location: 'Ámsterdam, Países Bajos',
   },
   {
-    text: 'The corner unit transformed a dead corner of my terrace into the centrepiece of the garden. Neighbours keep asking where I bought it.',
+    text: 'La unidad de esquina transformó un rincón muerto de mi terraza en el punto focal del jardín. Los vecinos no paran de preguntarme dónde la compré.',
     author: 'David K.',
-    location: 'Berlin, DE',
+    location: 'Berlín, Alemania',
   },
   {
-    text: 'Ordered the XL raised bed for my allotment. Delivery was fast, packaging was plastic-free, and the Charcoal finish looks stunning. Highly recommend.',
+    text: 'Pedí la cama XL para mi huerto. La entrega fue rápida, el embalaje era libre de plástico y el acabado Carbón queda espectacular. Muy recomendable.',
     author: 'Priya L.',
-    location: 'London, UK',
+    location: 'Londres, Reino Unido',
   },
 ];
 
@@ -117,22 +117,22 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-20 md:py-32">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-              Grow Your World,{' '}
-              <span className="text-[#40916C]">Block by Block</span>
+              Cultiva tu mundo,{' '}
+              <span className="text-[#40916C]">bloque a bloque</span>
             </h1>
             <p className="text-lg md:text-xl text-green-200 mb-8 leading-relaxed">
-              Kubico modular planters let you design the perfect garden setup — from a single herb bed
-              to a full kitchen garden — using sustainably sourced timber that lasts.
+              Las jardineras modulares de Kubico te permiten diseñar el jardín perfecto — desde una sola cama de hierbas
+              hasta un huerto completo — con madera de origen sostenible que dura años.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/catalog">
                 <Button variant="primary" size="lg" className="bg-[#40916C] hover:bg-[#2D6A4F] border-transparent text-white">
-                  Shop Now
+                  Ver tienda
                 </Button>
               </Link>
               <Link to="/configurator">
                 <Button variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-[#1B4332]">
-                  Build Yours
+                  Diseña el tuyo
                 </Button>
               </Link>
             </div>
@@ -144,10 +144,10 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-[#374151] mb-4">
-            Why Choose Kubico?
+            ¿Por qué elegir Kubico?
           </h2>
           <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
-            We build planters that grow with you — modular, sustainable, and designed to last a lifetime.
+            Creamos jardineras que crecen contigo — modulares, sostenibles y diseñadas para durar toda la vida.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map(f => (
@@ -165,10 +165,10 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-[#F8F5F0]">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-[#374151] mb-4">
-            Browse by Category
+            Explorar por categoría
           </h2>
           <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
-            From compact wall planters to estate-sized raised beds — there's a Kubico for every space.
+            Desde jardineras de pared compactas hasta camas de cultivo de gran tamaño — hay un Kubico para cada espacio.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map(cat => (
@@ -196,11 +196,11 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-12">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#374151] mb-2">Featured Planters</h2>
-                <p className="text-gray-500">Our most popular picks, hand selected for you.</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#374151] mb-2">Jardineras destacadas</h2>
+                <p className="text-gray-500">Nuestra selección más popular, elegida para ti.</p>
               </div>
               <Link to="/catalog" className="hidden md:block text-sm font-medium text-[#2D6A4F] hover:underline">
-                View all &rarr;
+                Ver todo &rarr;
               </Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -210,7 +210,7 @@ export default function Home() {
             </div>
             <div className="mt-8 text-center md:hidden">
               <Link to="/catalog">
-                <Button variant="ghost">View all products</Button>
+                <Button variant="ghost">Ver todos los productos</Button>
               </Link>
             </div>
           </div>
@@ -221,10 +221,10 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-[#F8F5F0]">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center text-[#374151] mb-4">
-            Loved by Gardeners
+            La elección de los jardineros
           </h2>
           <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
-            Thousands of happy customers across Europe. Here's what they're saying.
+            Miles de clientes satisfechos en toda Europa. Esto es lo que dicen.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map(t => (
@@ -251,14 +251,14 @@ export default function Home() {
       <section className="bg-[#2D6A4F] py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Ready to start growing?
+            ¿Listo para empezar a cultivar?
           </h2>
           <p className="text-green-200 mb-8 max-w-xl mx-auto">
-            Use our free configurator to design your perfect setup and get an instant quote.
+            Usa nuestro configurador gratuito para diseñar tu setup perfecto y obtener un presupuesto al instante.
           </p>
           <Link to="/configurator">
             <Button variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-[#2D6A4F]">
-              Open Configurator
+              Abrir configurador
             </Button>
           </Link>
         </div>

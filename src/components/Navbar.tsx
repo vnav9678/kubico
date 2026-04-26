@@ -7,9 +7,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { to: '/catalog', label: 'Shop' },
-    { to: '/configurator', label: 'Configurator' },
-    { to: '/quote', label: 'Quote' },
+    { to: '/catalog', label: 'Tienda' },
+    { to: '/configurator', label: 'Configurador' },
+    { to: '/quote', label: 'Presupuesto' },
   ];
 
   return (
@@ -18,7 +18,7 @@ export default function Navbar() {
         <Link to="/" className="text-2xl font-bold text-[#2D6A4F] tracking-tight">
           Kubico
         </Link>
-        <nav className="hidden md:flex gap-8" aria-label="Main navigation">
+        <nav className="hidden md:flex gap-8" aria-label="Navegación principal">
           {links.map(l => (
             <NavLink
               key={l.to}
@@ -35,7 +35,7 @@ export default function Navbar() {
           <Link
             to="/cart"
             className="relative p-2 focus:outline-none focus:ring-2 focus:ring-[#2D6A4F] rounded-md text-[#374151] hover:text-[#2D6A4F] transition-colors"
-            aria-label={`Cart${totalItems > 0 ? `, ${totalItems} items` : ''}`}
+            aria-label={`Carrito${totalItems > 0 ? `, ${totalItems} artículos` : ''}`}
           >
             <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
@@ -51,7 +51,7 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-[#2D6A4F] rounded-md text-[#374151]"
             onClick={() => setOpen(!open)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
           >
             <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -63,7 +63,7 @@ export default function Navbar() {
         </div>
       </div>
       {open && (
-        <nav className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-4" aria-label="Mobile navigation">
+        <nav className="md:hidden bg-white border-t border-gray-100 px-4 py-4 flex flex-col gap-4" aria-label="Navegación móvil">
           {links.map(l => (
             <NavLink
               key={l.to}
@@ -83,7 +83,7 @@ export default function Navbar() {
               `font-medium text-base ${isActive ? 'text-[#2D6A4F]' : 'text-[#374151]'}`
             }
           >
-            Cart{totalItems > 0 && (
+            Carrito{totalItems > 0 && (
               <span className="ml-2 bg-[#8B5E3C] text-white text-xs px-2 py-0.5 rounded-full">
                 {totalItems}
               </span>

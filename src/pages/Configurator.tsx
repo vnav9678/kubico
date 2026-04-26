@@ -25,28 +25,28 @@ interface FinishOption {
 }
 
 const BASE_OPTIONS: BaseOption[] = [
-  { id: 'small', label: 'Small', dims: '60 × 40 cm', cols: 3, rows: 2, price: 89 },
-  { id: 'medium', label: 'Medium', dims: '120 × 40 cm', cols: 5, rows: 2, price: 149 },
-  { id: 'large', label: 'Large', dims: '180 × 60 cm', cols: 7, rows: 3, price: 229 },
+  { id: 'small', label: 'Pequeño', dims: '60 × 40 cm', cols: 3, rows: 2, price: 89 },
+  { id: 'medium', label: 'Mediano', dims: '120 × 40 cm', cols: 5, rows: 2, price: 149 },
+  { id: 'large', label: 'Grande', dims: '180 × 60 cm', cols: 7, rows: 3, price: 229 },
   { id: 'xlarge', label: 'XL', dims: '240 × 80 cm', cols: 9, rows: 4, price: 349 },
 ];
 
 const EXTENSIONS: Extension[] = [
-  { id: 'trellis', label: 'Trellis', price: 29 },
-  { id: 'drip', label: 'Drip System', price: 49 },
-  { id: 'casters', label: 'Caster Wheels', price: 39 },
-  { id: 'sidepanel', label: 'Side Panel', price: 25 },
+  { id: 'trellis', label: 'Enrejado', price: 29 },
+  { id: 'drip', label: 'Sistema de riego por goteo', price: 49 },
+  { id: 'casters', label: 'Ruedas con freno', price: 39 },
+  { id: 'sidepanel', label: 'Panel lateral', price: 25 },
 ];
 
 const FINISHES: FinishOption[] = [
-  { id: 'natural', label: 'Natural Pine', color: '#C4A265' },
-  { id: 'oak', label: 'Treated Oak', color: '#8B5E3C' },
-  { id: 'charcoal', label: 'Charcoal', color: '#374151' },
-  { id: 'white', label: 'White', color: '#F0EBE3' },
-  { id: 'sage', label: 'Sage Green', color: '#40916C' },
+  { id: 'natural', label: 'Pino natural', color: '#C4A265' },
+  { id: 'oak', label: 'Roble tratado', color: '#8B5E3C' },
+  { id: 'charcoal', label: 'Carbón', color: '#374151' },
+  { id: 'white', label: 'Blanco', color: '#F0EBE3' },
+  { id: 'sage', label: 'Verde salvia', color: '#40916C' },
 ];
 
-const STEP_LABELS = ['Base', 'Extensions', 'Finish', 'Review'];
+const STEP_LABELS = ['Base', 'Ampliaciones', 'Acabado', 'Resumen'];
 
 function PreviewSVG({ base, finish }: { base: BaseOption; finish: FinishOption }) {
   const cellW = Math.min(40, Math.floor(340 / (base.cols + 2)));
@@ -58,7 +58,7 @@ function PreviewSVG({ base, finish }: { base: BaseOption; finish: FinishOption }
   const woodColor = finish.color === '#F0EBE3' ? '#D9D2C7' : finish.color;
 
   return (
-    <svg width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Planter preview">
+    <svg width="340" height="200" viewBox="0 0 340 200" role="img" aria-label="Vista previa de la jardinera">
       <rect width="340" height="200" fill="#F0EBE3" rx="12" />
       {Array.from({ length: base.rows }, (_, r) =>
         Array.from({ length: base.cols }, (_, c) => (
@@ -152,8 +152,8 @@ export default function Configurator() {
 
     const configSummary = [
       `Base: ${selectedBase.label} (${selectedBase.dims})`,
-      extensions ? `Extensions: ${extensions}` : null,
-      `Finish: ${selectedFinish.label}`,
+      extensions ? `Ampliaciones: ${extensions}` : null,
+      `Acabado: ${selectedFinish.label}`,
     ]
       .filter(Boolean)
       .join(' | ');
@@ -163,7 +163,7 @@ export default function Configurator() {
       payload: {
         id: `custom-${selectedBase.id}-${selectedFinish.id}-${Date.now()}`,
         productId: `custom-${selectedBase.id}`,
-        name: `Custom Raised Bed ${selectedBase.label}`,
+        name: `Cama de cultivo personalizada ${selectedBase.label}`,
         price: total,
         quantity: 1,
         finish: selectedFinish.label,
@@ -176,15 +176,15 @@ export default function Configurator() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
       <div className="text-center mb-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-2">Build Your Planter</h1>
-        <p className="text-gray-500">Configure your perfect Kubico in three steps.</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-2">Diseña tu jardinera</h1>
+        <p className="text-gray-500">Configura tu Kubico perfecto en tres pasos.</p>
       </div>
 
       <StepIndicator currentStep={step} total={STEP_LABELS.length} />
 
       {/* Running total */}
       <div className="bg-[#2D6A4F] text-white rounded-xl px-6 py-3 mb-8 flex items-center justify-between">
-        <span className="text-sm font-medium">Running Total</span>
+        <span className="text-sm font-medium">Total actual</span>
         <span className="text-2xl font-bold">€{total}</span>
       </div>
 
@@ -199,7 +199,7 @@ export default function Configurator() {
       <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 mb-6">
         {step === 0 && (
           <div>
-            <h2 className="font-semibold text-[#374151] mb-4">Step 1: Choose your base module</h2>
+            <h2 className="font-semibold text-[#374151] mb-4">Paso 1: Elige tu módulo base</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {BASE_OPTIONS.map(opt => (
                 <button
@@ -224,7 +224,7 @@ export default function Configurator() {
 
         {step === 1 && (
           <div>
-            <h2 className="font-semibold text-[#374151] mb-4">Step 2: Add extensions (optional)</h2>
+            <h2 className="font-semibold text-[#374151] mb-4">Paso 2: Añade ampliaciones (opcional)</h2>
             <div className="space-y-3">
               {EXTENSIONS.map(ext => (
                 <label
@@ -253,7 +253,7 @@ export default function Configurator() {
 
         {step === 2 && (
           <div>
-            <h2 className="font-semibold text-[#374151] mb-4">Step 3: Choose your finish</h2>
+            <h2 className="font-semibold text-[#374151] mb-4">Paso 3: Elige tu acabado</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {FINISHES.map(f => (
                 <button
@@ -283,17 +283,17 @@ export default function Configurator() {
 
         {step === 3 && (
           <div>
-            <h2 className="font-semibold text-[#374151] mb-4">Review your configuration</h2>
+            <h2 className="font-semibold text-[#374151] mb-4">Revisa tu configuración</h2>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between py-2 border-b border-gray-100">
-                <span className="text-gray-500">Base module</span>
+                <span className="text-gray-500">Módulo base</span>
                 <span className="font-medium text-[#374151]">{selectedBase.label} ({selectedBase.dims}) — €{selectedBase.price}</span>
               </div>
               <div className="flex justify-between py-2 border-b border-gray-100">
-                <span className="text-gray-500">Extensions</span>
+                <span className="text-gray-500">Ampliaciones</span>
                 <span className="font-medium text-[#374151]">
                   {selectedExtensions.size === 0
-                    ? 'None'
+                    ? 'Ninguna'
                     : Array.from(selectedExtensions)
                         .map(id => {
                           const ext = EXTENSIONS.find(e => e.id === id);
@@ -304,7 +304,7 @@ export default function Configurator() {
                 </span>
               </div>
               <div className="flex justify-between py-2 border-b border-gray-100">
-                <span className="text-gray-500">Finish</span>
+                <span className="text-gray-500">Acabado</span>
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 rounded-full border border-gray-300" style={{ backgroundColor: selectedFinish.color }} />
                   <span className="font-medium text-[#374151]">{selectedFinish.label}</span>
@@ -316,7 +316,7 @@ export default function Configurator() {
               </div>
             </div>
             <Button variant="primary" size="lg" className="w-full mt-4" onClick={handleAddToCart}>
-              Add to Cart — €{total}
+              Añadir al carrito — €{total}
             </Button>
           </div>
         )}
@@ -329,11 +329,11 @@ export default function Configurator() {
           onClick={() => setStep(s => s - 1)}
           disabled={step === 0}
         >
-          &larr; Back
+          &larr; Atrás
         </Button>
         {step < STEP_LABELS.length - 1 && (
           <Button variant="primary" onClick={() => setStep(s => s + 1)}>
-            Next &rarr;
+            Siguiente &rarr;
           </Button>
         )}
       </div>

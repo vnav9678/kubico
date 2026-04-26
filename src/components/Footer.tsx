@@ -12,32 +12,32 @@ export default function Footer() {
               Kubico
             </Link>
             <p className="text-green-200 text-sm leading-relaxed max-w-xs">
-              Modular garden planters crafted from sustainably sourced timber.
-              Grow your world, block by block.
+              Jardineras modulares fabricadas con madera de origen sostenible.
+              Cultiva tu mundo, bloque a bloque.
             </p>
           </div>
           <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Shop</h3>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Tienda</h3>
             <ul className="space-y-2 text-sm text-green-200">
-              <li><Link to="/catalog?category=Raised+Beds" className="hover:text-white transition-colors">Raised Beds</Link></li>
-              <li><Link to="/catalog?category=Wall+Planters" className="hover:text-white transition-colors">Wall Planters</Link></li>
-              <li><Link to="/catalog?category=Corner+Units" className="hover:text-white transition-colors">Corner Units</Link></li>
-              <li><Link to="/catalog?category=Accessories" className="hover:text-white transition-colors">Accessories</Link></li>
+              <li><Link to="/catalog?category=Camas+de+cultivo" className="hover:text-white transition-colors">Camas de cultivo</Link></li>
+              <li><Link to="/catalog?category=Jardineras+de+pared" className="hover:text-white transition-colors">Jardineras de pared</Link></li>
+              <li><Link to="/catalog?category=Unidades+de+esquina" className="hover:text-white transition-colors">Unidades de esquina</Link></li>
+              <li><Link to="/catalog?category=Accesorios" className="hover:text-white transition-colors">Accesorios</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Help</h3>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Ayuda</h3>
             <ul className="space-y-2 text-sm text-green-200">
-              <li><Link to="/configurator" className="hover:text-white transition-colors">Build Your Planter</Link></li>
-              <li><Link to="/quote" className="hover:text-white transition-colors">Get a Quote</Link></li>
-              <li><Link to="/cart" className="hover:text-white transition-colors">Your Cart</Link></li>
-              <li><a href="mailto:hello@kubico.com" className="hover:text-white transition-colors">Contact Us</a></li>
+              <li><Link to="/configurator" className="hover:text-white transition-colors">Diseña tu jardinera</Link></li>
+              <li><Link to="/quote" className="hover:text-white transition-colors">Obtener presupuesto</Link></li>
+              <li><Link to="/cart" className="hover:text-white transition-colors">Tu carrito</Link></li>
+              <li><a href="mailto:hello@kubico.com" className="hover:text-white transition-colors">Contáctanos</a></li>
             </ul>
           </div>
         </div>
         <div className="border-t border-green-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-green-300">
-          <p>© {year} Kubico. All rights reserved.</p>
-          <p>Sustainably sourced &middot; Carbon neutral delivery &middot; Made with care</p>
+          <p>© {year} Kubico. Todos los derechos reservados.</p>
+          <p>Madera sostenible &middot; Entrega con huella de carbono cero &middot; Hecho con cuidado</p>
         </div>
       </div>
     </footer>

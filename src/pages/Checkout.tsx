@@ -22,7 +22,7 @@ interface PaymentForm {
   cvv: string;
 }
 
-const STEP_LABELS = ['Address', 'Shipping', 'Payment', 'Confirmation'];
+const STEP_LABELS = ['Dirección', 'Envío', 'Pago', 'Confirmación'];
 
 function StepIndicator({ currentStep }: { currentStep: number }) {
   return (
@@ -59,9 +59,9 @@ function StepIndicator({ currentStep }: { currentStep: number }) {
 }
 
 const COUNTRIES = [
-  'Austria', 'Belgium', 'Czech Republic', 'Denmark', 'Finland', 'France',
-  'Germany', 'Ireland', 'Italy', 'Netherlands', 'Norway', 'Poland',
-  'Portugal', 'Spain', 'Sweden', 'Switzerland', 'United Kingdom',
+  'Alemania', 'Austria', 'Bélgica', 'Dinamarca', 'España', 'Finlandia',
+  'Francia', 'Irlanda', 'Italia', 'Noruega', 'Países Bajos', 'Polonia',
+  'Portugal', 'Reino Unido', 'República Checa', 'Suecia', 'Suiza',
 ];
 
 export default function Checkout() {
@@ -124,10 +124,10 @@ export default function Checkout() {
   if (state.items.length === 0 && step !== 3) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-[#374151] mb-4">Your cart is empty</h1>
-        <p className="text-gray-500 mb-6">Add some products before checking out.</p>
+        <h1 className="text-2xl font-bold text-[#374151] mb-4">Tu carrito está vacío</h1>
+        <p className="text-gray-500 mb-6">Añada productos antes de finalizar la compra.</p>
         <Link to="/catalog">
-          <Button variant="primary">Browse Products</Button>
+          <Button variant="primary">Ver productos</Button>
         </Link>
       </div>
     );
@@ -135,17 +135,17 @@ export default function Checkout() {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
-      <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-8 text-center">Checkout</h1>
+      <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-8 text-center">Finalizar compra</h1>
       <StepIndicator currentStep={step} />
 
       {/* Step 1: Address */}
       {step === 0 && (
         <form onSubmit={handleAddressSubmit} noValidate>
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-            <h2 className="font-semibold text-[#374151] mb-5">Delivery Address</h2>
+            <h2 className="font-semibold text-[#374151] mb-5">Dirección de entrega</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="firstName" className={labelClass}>First Name *</label>
+                <label htmlFor="firstName" className={labelClass}>Nombre *</label>
                 <input
                   id="firstName"
                   type="text"
@@ -153,11 +153,11 @@ export default function Checkout() {
                   value={address.firstName}
                   onChange={e => updateAddress('firstName', e.target.value)}
                   className={fieldClass}
-                  placeholder="Jane"
+                  placeholder="Ana"
                 />
               </div>
               <div>
-                <label htmlFor="lastName" className={labelClass}>Last Name *</label>
+                <label htmlFor="lastName" className={labelClass}>Apellidos *</label>
                 <input
                   id="lastName"
                   type="text"
@@ -165,11 +165,11 @@ export default function Checkout() {
                   value={address.lastName}
                   onChange={e => updateAddress('lastName', e.target.value)}
                   className={fieldClass}
-                  placeholder="Smith"
+                  placeholder="García"
                 />
               </div>
               <div>
-                <label htmlFor="email" className={labelClass}>Email *</label>
+                <label htmlFor="email" className={labelClass}>Correo electrónico *</label>
                 <input
                   id="email"
                   type="email"
@@ -177,22 +177,22 @@ export default function Checkout() {
                   value={address.email}
                   onChange={e => updateAddress('email', e.target.value)}
                   className={fieldClass}
-                  placeholder="jane@example.com"
+                  placeholder="ana@ejemplo.com"
                 />
               </div>
               <div>
-                <label htmlFor="phone" className={labelClass}>Phone</label>
+                <label htmlFor="phone" className={labelClass}>Teléfono</label>
                 <input
                   id="phone"
                   type="tel"
                   value={address.phone}
                   onChange={e => updateAddress('phone', e.target.value)}
                   className={fieldClass}
-                  placeholder="+31 6 12345678"
+                  placeholder="+34 612 345 678"
                 />
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="address" className={labelClass}>Street Address *</label>
+                <label htmlFor="address" className={labelClass}>Dirección *</label>
                 <input
                   id="address"
                   type="text"
@@ -200,11 +200,11 @@ export default function Checkout() {
                   value={address.address}
                   onChange={e => updateAddress('address', e.target.value)}
                   className={fieldClass}
-                  placeholder="123 Garden Lane"
+                  placeholder="Calle del Jardín, 12"
                 />
               </div>
               <div>
-                <label htmlFor="city" className={labelClass}>City *</label>
+                <label htmlFor="city" className={labelClass}>Ciudad *</label>
                 <input
                   id="city"
                   type="text"
@@ -212,11 +212,11 @@ export default function Checkout() {
                   value={address.city}
                   onChange={e => updateAddress('city', e.target.value)}
                   className={fieldClass}
-                  placeholder="Amsterdam"
+                  placeholder="Madrid"
                 />
               </div>
               <div>
-                <label htmlFor="postcode" className={labelClass}>Postcode *</label>
+                <label htmlFor="postcode" className={labelClass}>Código postal *</label>
                 <input
                   id="postcode"
                   type="text"
@@ -224,11 +224,11 @@ export default function Checkout() {
                   value={address.postcode}
                   onChange={e => updateAddress('postcode', e.target.value)}
                   className={fieldClass}
-                  placeholder="1234 AB"
+                  placeholder="28001"
                 />
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="country" className={labelClass}>Country *</label>
+                <label htmlFor="country" className={labelClass}>País *</label>
                 <select
                   id="country"
                   required
@@ -236,7 +236,7 @@ export default function Checkout() {
                   onChange={e => updateAddress('country', e.target.value)}
                   className={fieldClass}
                 >
-                  <option value="">Select country…</option>
+                  <option value="">Seleccione país…</option>
                   {COUNTRIES.map(c => (
                     <option key={c} value={c}>{c}</option>
                   ))}
@@ -245,7 +245,7 @@ export default function Checkout() {
             </div>
           </div>
           <div className="mt-4 flex justify-end">
-            <Button type="submit" variant="primary" size="lg">Continue &rarr;</Button>
+            <Button type="submit" variant="primary" size="lg">Continuar &rarr;</Button>
           </div>
         </form>
       )}
@@ -254,11 +254,11 @@ export default function Checkout() {
       {step === 1 && (
         <div>
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-            <h2 className="font-semibold text-[#374151] mb-5">Shipping Method</h2>
+            <h2 className="font-semibold text-[#374151] mb-5">Método de envío</h2>
             <div className="space-y-3">
               {[
-                { id: 'standard' as ShippingMethod, label: 'Standard Delivery', price: 9.95, desc: '3–5 business days' },
-                { id: 'express' as ShippingMethod, label: 'Express Delivery', price: 19.95, desc: '1–2 business days' },
+                { id: 'standard' as ShippingMethod, label: 'Envío estándar', price: 9.95, desc: '3–5 días laborables' },
+                { id: 'express' as ShippingMethod, label: 'Envío exprés', price: 19.95, desc: '1–2 días laborables' },
               ].map(opt => (
                 <label
                   key={opt.id}
@@ -286,8 +286,8 @@ export default function Checkout() {
             </div>
           </div>
           <div className="mt-4 flex justify-between">
-            <Button variant="ghost" onClick={() => setStep(0)}>&larr; Back</Button>
-            <Button variant="primary" size="lg" onClick={() => setStep(2)}>Continue &rarr;</Button>
+            <Button variant="ghost" onClick={() => setStep(0)}>&larr; Atrás</Button>
+            <Button variant="primary" size="lg" onClick={() => setStep(2)}>Continuar &rarr;</Button>
           </div>
         </div>
       )}
@@ -300,15 +300,15 @@ export default function Checkout() {
               <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
             </svg>
             <p className="text-sm text-yellow-800 font-medium">
-              DEMO ONLY — No real payment is processed. Do not enter real card details.
+              SOLO DEMO — No se realiza ningún cobro real. No introduzca datos de tarjeta reales.
             </p>
           </div>
 
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-            <h2 className="font-semibold text-[#374151] mb-5">Payment Details</h2>
+            <h2 className="font-semibold text-[#374151] mb-5">Datos de pago</h2>
             <div className="space-y-4">
               <div>
-                <label htmlFor="cardNumber" className={labelClass}>Card Number</label>
+                <label htmlFor="cardNumber" className={labelClass}>Número de tarjeta</label>
                 <input
                   id="cardNumber"
                   type="text"
@@ -322,7 +322,7 @@ export default function Checkout() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="expiry" className={labelClass}>Expiry Date</label>
+                  <label htmlFor="expiry" className={labelClass}>Fecha de caducidad</label>
                   <input
                     id="expiry"
                     type="text"
@@ -353,15 +353,15 @@ export default function Checkout() {
             {/* Order summary */}
             <div className="mt-6 pt-5 border-t border-gray-100 space-y-2 text-sm">
               <div className="flex justify-between text-gray-500">
-                <span>Products</span>
+                <span>Productos</span>
                 <span>€{totalPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-500">
-                <span>Shipping ({shipping === 'standard' ? 'Standard' : 'Express'})</span>
+                <span>Envío ({shipping === 'standard' ? 'Estándar' : 'Exprés'})</span>
                 <span>€{shippingCost.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-500">
-                <span>VAT (21%)</span>
+                <span>IVA (21%)</span>
                 <span>€{vat.toFixed(2)}</span>
               </div>
               <div className="flex justify-between font-bold text-base text-[#374151] pt-2 border-t border-gray-100">
@@ -372,8 +372,8 @@ export default function Checkout() {
           </div>
 
           <div className="mt-4 flex justify-between">
-            <Button type="button" variant="ghost" onClick={() => setStep(1)}>&larr; Back</Button>
-            <Button type="submit" variant="primary" size="lg">Place Order &rarr;</Button>
+            <Button type="button" variant="ghost" onClick={() => setStep(1)}>&larr; Atrás</Button>
+            <Button type="submit" variant="primary" size="lg">Realizar pedido &rarr;</Button>
           </div>
         </form>
       )}
@@ -387,10 +387,10 @@ export default function Checkout() {
                 <path d="M20 6L9 17l-5-5" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-[#374151] mb-2">Thank you, {address.firstName || 'there'}!</h2>
-            <p className="text-gray-500 mb-1">Your order has been placed successfully.</p>
+            <h2 className="text-2xl font-bold text-[#374151] mb-2">¡Gracias, {address.firstName || 'cliente'}!</h2>
+            <p className="text-gray-500 mb-1">Su pedido ha sido realizado con éxito.</p>
             <p className="text-sm text-gray-400 mb-6">
-              Order reference: <span className="font-mono font-semibold text-[#374151]">{orderNumber}</span>
+              Referencia del pedido: <span className="font-mono font-semibold text-[#374151]">{orderNumber}</span>
             </p>
 
             {state.items.length > 0 ? (
@@ -399,7 +399,7 @@ export default function Checkout() {
                   <div key={item.id} className="flex justify-between items-center p-3 text-sm">
                     <div>
                       <p className="font-medium text-[#374151]">{item.name}</p>
-                      <p className="text-xs text-gray-400">{item.finish} · Qty {item.quantity}</p>
+                      <p className="text-xs text-gray-400">{item.finish} · Cant. {item.quantity}</p>
                     </div>
                     <span className="font-semibold text-[#374151]">€{(item.price * item.quantity).toFixed(2)}</span>
                   </div>
@@ -407,25 +407,25 @@ export default function Checkout() {
               </div>
             ) : (
               <div className="text-left border border-gray-100 rounded-lg p-4 mb-6 text-center text-sm text-gray-400">
-                Order items confirmed and cleared from cart.
+                Artículos del pedido confirmados y eliminados del carrito.
               </div>
             )}
 
             <div className="bg-[#F8F5F0] rounded-lg p-4 text-sm text-gray-600 mb-6">
               <p>
-                A confirmation email has been sent to{' '}
-                <span className="font-medium">{address.email || 'your email'}</span>.
-                Delivery to <span className="font-medium">{address.city || 'your address'}</span> is expected in{' '}
-                {shipping === 'standard' ? '3–5' : '1–2'} business days.
+                Se ha enviado un correo de confirmación a{' '}
+                <span className="font-medium">{address.email || 'su correo electrónico'}</span>.
+                La entrega en <span className="font-medium">{address.city || 'su dirección'}</span> se espera en{' '}
+                {shipping === 'standard' ? '3–5' : '1–2'} días laborables.
               </p>
             </div>
 
             <div className="font-bold text-[#374151] mb-6">
-              Total charged: <span className="text-[#2D6A4F]">€{grandTotal.toFixed(2)}</span>
+              Total cobrado: <span className="text-[#2D6A4F]">€{grandTotal.toFixed(2)}</span>
             </div>
 
             <Link to="/">
-              <Button variant="primary" size="lg">Back to Home</Button>
+              <Button variant="primary" size="lg">Volver al inicio</Button>
             </Link>
           </div>
         </div>

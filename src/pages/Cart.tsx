@@ -9,7 +9,7 @@ const allProducts = productsData as Product[];
 
 function getCategoryForProduct(productId: string): string {
   const p = allProducts.find(p => p.id === productId);
-  return p?.category || 'Raised Beds';
+  return p?.category || 'Camas de cultivo';
 }
 
 export default function Cart() {
@@ -33,12 +33,12 @@ export default function Cart() {
             <line x1="3" y1="6" x2="21" y2="6" />
             <path d="M16 10a4 4 0 01-8 0" />
           </svg>
-          <h1 className="text-2xl font-bold text-[#374151] mb-3">Your cart is empty</h1>
+          <h1 className="text-2xl font-bold text-[#374151] mb-3">Tu carrito está vacío</h1>
           <p className="text-gray-500 mb-8">
-            Looks like you haven't added anything yet. Browse our collection and find the perfect planter.
+            Parece que aún no has añadido nada. Explora nuestra colección y encuentra la jardinera perfecta.
           </p>
           <Link to="/catalog">
-            <Button variant="primary" size="lg">Browse Products</Button>
+            <Button variant="primary" size="lg">Ver productos</Button>
           </Link>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default function Cart() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-6">
-        Your Cart ({totalItems} item{totalItems !== 1 ? 's' : ''})
+        Tu carrito ({totalItems} artículo{totalItems !== 1 ? 's' : ''})
       </h1>
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -73,7 +73,7 @@ export default function Cart() {
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <h3 className="font-semibold text-[#374151] text-sm leading-tight">{item.name}</h3>
-                    <p className="text-xs text-gray-500 mt-0.5">Finish: {item.finish}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Acabado: {item.finish}</p>
                     {item.configSummary && (
                       <p className="text-xs text-gray-400 mt-0.5 truncate max-w-xs">{item.configSummary}</p>
                     )}
@@ -81,7 +81,7 @@ export default function Cart() {
                   <button
                     onClick={() => removeItem(item.id)}
                     className="text-gray-300 hover:text-red-400 transition-colors flex-shrink-0"
-                    aria-label={`Remove ${item.name}`}
+                    aria-label={`Eliminar ${item.name}`}
                   >
                     <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M18 6L6 18M6 6l12 12" />
@@ -95,7 +95,7 @@ export default function Cart() {
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
                       className="w-7 h-7 rounded-md border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors text-sm"
-                      aria-label="Decrease quantity"
+                      aria-label="Reducir cantidad"
                     >
                       <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M5 12h14" />
@@ -105,7 +105,7 @@ export default function Cart() {
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
                       className="w-7 h-7 rounded-md border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors text-sm"
-                      aria-label="Increase quantity"
+                      aria-label="Aumentar cantidad"
                     >
                       <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 5v14M5 12h14" />
@@ -122,31 +122,31 @@ export default function Cart() {
         {/* Sidebar */}
         <div className="lg:w-72 xl:w-80">
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 lg:sticky lg:top-24">
-            <h2 className="font-semibold text-[#374151] mb-4">Order Summary</h2>
+            <h2 className="font-semibold text-[#374151] mb-4">Resumen del pedido</h2>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
                 <span>€{totalPrice.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-gray-600">
-                <span>Shipping</span>
+                <span>Envío</span>
                 <span>€{shipping.toFixed(2)}</span>
               </div>
-              <p className="text-xs text-gray-400">Standard delivery 3–5 business days</p>
+              <p className="text-xs text-gray-400">Envío estándar 3–5 días laborables</p>
             </div>
             <div className="border-t border-gray-200 mt-4 pt-4 flex justify-between font-bold text-[#374151]">
-              <span>Total (excl. VAT)</span>
+              <span>Total (IVA no incluido)</span>
               <span className="text-[#2D6A4F]">€{(totalPrice + shipping).toFixed(2)}</span>
             </div>
             <div className="mt-4 space-y-2">
               <Link to="/checkout" className="block">
                 <Button variant="primary" size="lg" className="w-full">
-                  Checkout
+                  Finalizar compra
                 </Button>
               </Link>
               <Link to="/quote" className="block">
                 <Button variant="ghost" className="w-full">
-                  View Quote
+                  Ver presupuesto
                 </Button>
               </Link>
             </div>
@@ -155,7 +155,7 @@ export default function Cart() {
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0110 0v4" />
               </svg>
-              Secure checkout
+              Pago seguro
             </div>
           </div>
         </div>

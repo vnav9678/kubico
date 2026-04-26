@@ -7,10 +7,10 @@ interface ProductSVGProps {
 }
 
 const CATEGORY_COLORS: Record<string, { bg: string; accent: string }> = {
-  'Raised Beds': { bg: '#8B5E3C', accent: '#2D6A4F' },
-  'Wall Planters': { bg: '#2D6A4F', accent: '#8B5E3C' },
-  'Corner Units': { bg: '#374151', accent: '#8B5E3C' },
-  'Accessories': { bg: '#40916C', accent: '#F8F5F0' },
+  'Camas de cultivo': { bg: '#8B5E3C', accent: '#2D6A4F' },
+  'Jardineras de pared': { bg: '#2D6A4F', accent: '#8B5E3C' },
+  'Unidades de esquina': { bg: '#374151', accent: '#8B5E3C' },
+  'Accesorios': { bg: '#40916C', accent: '#F8F5F0' },
 };
 
 export default function ProductSVG({ productId, category, className = '', width = 400, height = 300 }: ProductSVGProps) {
@@ -30,7 +30,7 @@ export default function ProductSVG({ productId, category, className = '', width 
       viewBox={`0 0 ${width} ${height}`}
       className={className}
       role="img"
-      aria-label={`${category} product illustration`}
+      aria-label={`Ilustración de ${category}`}
     >
       <rect width={width} height={height} fill="#F0EBE3" />
       {Array.from({ length: rows }, (_, r) =>

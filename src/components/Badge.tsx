@@ -5,10 +5,10 @@ interface BadgeProps {
 }
 
 const categoryColors: Record<string, string> = {
-  'Raised Beds': 'bg-[#8B5E3C] text-white',
-  'Wall Planters': 'bg-[#2D6A4F] text-white',
-  'Corner Units': 'bg-[#374151] text-white',
-  'Accessories': 'bg-[#40916C] text-white',
+  'Camas de cultivo': 'bg-[#8B5E3C] text-white',
+  'Jardineras de pared': 'bg-[#2D6A4F] text-white',
+  'Unidades de esquina': 'bg-[#374151] text-white',
+  'Accesorios': 'bg-[#40916C] text-white',
 };
 
 export default function Badge({ label, category, className = '' }: BadgeProps) {

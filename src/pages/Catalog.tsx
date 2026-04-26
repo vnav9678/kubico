@@ -7,7 +7,7 @@ import Button from '../components/Button';
 
 const allProducts = productsData as Product[];
 
-const categories = ['Raised Beds', 'Wall Planters', 'Corner Units', 'Accessories'] as const;
+const categories = ['Camas de cultivo', 'Jardineras de pared', 'Unidades de esquina', 'Accesorios'] as const;
 const sizes = ['S', 'M', 'L', 'XL'] as const;
 const allFinishes = Array.from(new Set(allProducts.flatMap(p => p.finishes))).sort();
 
@@ -48,20 +48,20 @@ export default function Catalog() {
   const FilterSidebar = () => (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="font-semibold text-[#374151]">Filters</h2>
+        <h2 className="font-semibold text-[#374151]">Filtros</h2>
         {hasFilters && (
           <button
             onClick={clearFilters}
             className="text-xs text-[#2D6A4F] hover:underline font-medium"
           >
-            Clear all
+            Borrar todo
           </button>
         )}
       </div>
 
       {/* Category */}
       <div>
-        <h3 className="text-sm font-medium text-[#374151] mb-3">Category</h3>
+        <h3 className="text-sm font-medium text-[#374151] mb-3">Categoría</h3>
         <div className="space-y-2">
           {categories.map(cat => (
             <label key={cat} className="flex items-center gap-2 cursor-pointer">
@@ -80,7 +80,7 @@ export default function Catalog() {
 
       {/* Size */}
       <div>
-        <h3 className="text-sm font-medium text-[#374151] mb-3">Size</h3>
+        <h3 className="text-sm font-medium text-[#374151] mb-3">Talla</h3>
         <div className="flex flex-wrap gap-2">
           {sizes.map(sz => (
             <button
@@ -100,13 +100,13 @@ export default function Catalog() {
 
       {/* Finish */}
       <div>
-        <h3 className="text-sm font-medium text-[#374151] mb-3">Finish</h3>
+        <h3 className="text-sm font-medium text-[#374151] mb-3">Acabado</h3>
         <select
           value={selectedFinish}
           onChange={e => setParam('finish', e.target.value)}
           className="w-full text-sm border border-gray-300 rounded-md px-2 py-1.5 bg-white text-[#374151] focus:outline-none focus:ring-2 focus:ring-[#2D6A4F]"
         >
-          <option value="">All finishes</option>
+          <option value="">Todos los acabados</option>
           {allFinishes.map(f => (
             <option key={f} value={f}>{f}</option>
           ))}
@@ -116,10 +116,10 @@ export default function Catalog() {
       {/* Price range */}
       <div>
         <h3 className="text-sm font-medium text-[#374151] mb-3">
-          Price range: €{minPrice} – €{maxPrice === 1000 ? '1000+' : maxPrice}
+          Rango de precio: €{minPrice} – €{maxPrice === 1000 ? '1000+' : maxPrice}
         </h3>
         <div className="space-y-2">
-          <label className="text-xs text-gray-500">Min price</label>
+          <label className="text-xs text-gray-500">Precio mínimo</label>
           <input
             type="range"
             min={0}
@@ -129,7 +129,7 @@ export default function Catalog() {
             onChange={e => setParam('minPrice', e.target.value)}
             className="w-full accent-[#2D6A4F]"
           />
-          <label className="text-xs text-gray-500">Max price</label>
+          <label className="text-xs text-gray-500">Precio máximo</label>
           <input
             type="range"
             min={50}
@@ -147,8 +147,8 @@ export default function Catalog() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-1">All Products</h1>
-        <p className="text-gray-500 text-sm">{filtered.length} product{filtered.length !== 1 ? 's' : ''} found</p>
+        <h1 className="text-2xl md:text-3xl font-bold text-[#374151] mb-1">Todos los productos</h1>
+        <p className="text-gray-500 text-sm">{filtered.length} producto{filtered.length !== 1 ? 's' : ''} encontrado{filtered.length !== 1 ? 's' : ''}</p>
       </div>
 
       <div className="flex gap-8">
@@ -166,7 +166,7 @@ export default function Catalog() {
               <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="mr-2" aria-hidden="true">
                 <path d="M4 6h16M7 12h10M10 18h4" />
               </svg>
-              Filters {hasFilters && `(active)`}
+              Filtros {hasFilters && `(activos)`}
             </Button>
           </div>
 
@@ -176,8 +176,8 @@ export default function Catalog() {
               <div className="fixed inset-0 bg-black/50" onClick={() => setDrawerOpen(false)} />
               <div className="relative w-72 bg-white h-full overflow-y-auto p-6 ml-auto shadow-xl">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="font-bold text-[#374151]">Filters</h2>
-                  <button onClick={() => setDrawerOpen(false)} className="text-gray-400 hover:text-gray-700" aria-label="Close filters">
+                  <h2 className="font-bold text-[#374151]">Filtros</h2>
+                  <button onClick={() => setDrawerOpen(false)} className="text-gray-400 hover:text-gray-700" aria-label="Cerrar filtros">
                     <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path d="M18 6L6 18M6 6l12 12" />
                     </svg>
@@ -186,7 +186,7 @@ export default function Catalog() {
                 <FilterSidebar />
                 <div className="mt-6">
                   <Button variant="primary" className="w-full" onClick={() => setDrawerOpen(false)}>
-                    Show {filtered.length} results
+                    Mostrar {filtered.length} resultado{filtered.length !== 1 ? 's' : ''}
                   </Button>
                 </div>
               </div>
@@ -195,8 +195,8 @@ export default function Catalog() {
 
           {filtered.length === 0 ? (
             <div className="text-center py-24">
-              <p className="text-gray-400 text-lg mb-4">No products match your filters.</p>
-              <Button variant="ghost" onClick={clearFilters}>Clear filters</Button>
+              <p className="text-gray-400 text-lg mb-4">Ningún producto coincide con los filtros.</p>
+              <Button variant="ghost" onClick={clearFilters}>Borrar filtros</Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">

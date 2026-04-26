@@ -23,10 +23,10 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold text-[#374151] mb-4">Product not found</h1>
-        <p className="text-gray-500 mb-6">The product you are looking for does not exist.</p>
+        <h1 className="text-2xl font-bold text-[#374151] mb-4">Producto no encontrado</h1>
+        <p className="text-gray-500 mb-6">El producto que busca no existe.</p>
         <Link to="/catalog">
-          <Button variant="primary">Back to Catalog</Button>
+          <Button variant="primary">Volver al catálogo</Button>
         </Link>
       </div>
     );
@@ -44,7 +44,7 @@ export default function ProductDetail() {
         finish: selectedFinish,
       },
     });
-    setAddedMessage('Added to cart!');
+    setAddedMessage('¡Añadido al carrito!');
     setTimeout(() => setAddedMessage(''), 2500);
   }
 
@@ -67,9 +67,9 @@ export default function ProductDetail() {
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-400 mb-6 flex gap-2 items-center">
-        <Link to="/" className="hover:text-[#2D6A4F]">Home</Link>
+        <Link to="/" className="hover:text-[#2D6A4F]">Inicio</Link>
         <span>/</span>
-        <Link to="/catalog" className="hover:text-[#2D6A4F]">Catalog</Link>
+        <Link to="/catalog" className="hover:text-[#2D6A4F]">Catálogo</Link>
         <span>/</span>
         <Link to={`/catalog?category=${encodeURIComponent(product.category)}`} className="hover:text-[#2D6A4F]">{product.category}</Link>
         <span>/</span>
@@ -92,7 +92,7 @@ export default function ProductDetail() {
         <div>
           <div className="flex flex-wrap gap-2 mb-3">
             <Badge label={product.category} category={product.category} />
-            <Badge label={`Size ${product.size}`} />
+            <Badge label={`Talla ${product.size}`} />
           </div>
           <h1 className="text-3xl font-bold text-[#374151] mb-2">{product.name}</h1>
           <p className="text-3xl font-bold text-[#2D6A4F] mb-4">€{product.price}</p>
@@ -100,23 +100,23 @@ export default function ProductDetail() {
 
           {/* Specs table */}
           <div className="bg-[#F8F5F0] rounded-xl p-4 mb-6">
-            <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">Specifications</h2>
+            <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">Especificaciones</h2>
             <table className="w-full text-sm">
               <tbody className="divide-y divide-gray-200">
                 <tr>
-                  <td className="py-2 text-gray-500 pr-4">Width</td>
+                  <td className="py-2 text-gray-500 pr-4">Anchura</td>
                   <td className="py-2 font-medium text-[#374151]">{product.dimensions.width} cm</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-gray-500 pr-4">Depth</td>
+                  <td className="py-2 text-gray-500 pr-4">Profundidad</td>
                   <td className="py-2 font-medium text-[#374151]">{product.dimensions.depth} cm</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-gray-500 pr-4">Height</td>
+                  <td className="py-2 text-gray-500 pr-4">Altura</td>
                   <td className="py-2 font-medium text-[#374151]">{product.dimensions.height} cm</td>
                 </tr>
                 <tr>
-                  <td className="py-2 text-gray-500 pr-4">Size</td>
+                  <td className="py-2 text-gray-500 pr-4">Talla</td>
                   <td className="py-2 font-medium text-[#374151]">{product.size}</td>
                 </tr>
               </tbody>
@@ -125,7 +125,7 @@ export default function ProductDetail() {
 
           {/* Modules */}
           <div className="mb-6">
-            <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">Included Modules</h2>
+            <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">Módulos incluidos</h2>
             <ul className="space-y-1">
               {product.modules.map(m => (
                 <li key={m} className="flex items-center gap-2 text-sm text-gray-600">
@@ -141,7 +141,7 @@ export default function ProductDetail() {
           {/* Finish selector */}
           <div className="mb-6">
             <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">
-              Finish: <span className="text-[#2D6A4F] normal-case font-semibold">{selectedFinish}</span>
+              Acabado: <span className="text-[#2D6A4F] normal-case font-semibold">{selectedFinish}</span>
             </h2>
             <div className="flex flex-wrap gap-2">
               {product.finishes.map(finish => (
@@ -162,12 +162,12 @@ export default function ProductDetail() {
 
           {/* Quantity */}
           <div className="mb-6">
-            <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">Quantity</h2>
+            <h2 className="font-semibold text-[#374151] mb-3 text-sm uppercase tracking-wider">Cantidad</h2>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setQuantity(q => Math.max(1, q - 1))}
                 className="w-9 h-9 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
-                aria-label="Decrease quantity"
+                aria-label="Reducir cantidad"
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14" />
@@ -177,7 +177,7 @@ export default function ProductDetail() {
               <button
                 onClick={() => setQuantity(q => q + 1)}
                 className="w-9 h-9 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors"
-                aria-label="Increase quantity"
+                aria-label="Aumentar cantidad"
               >
                 <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M12 5v14M5 12h14" />
@@ -189,10 +189,10 @@ export default function ProductDetail() {
           {/* Action buttons */}
           <div className="flex flex-wrap gap-3 mb-4">
             <Button variant="primary" size="lg" onClick={handleAddToCart} className="flex-1">
-              Add to Cart — €{(product.price * quantity).toFixed(2)}
+              Añadir al carrito — €{(product.price * quantity).toFixed(2)}
             </Button>
             <Button variant="secondary" size="lg" onClick={handleBuyNow} className="flex-1">
-              Buy Now
+              Comprar ahora
             </Button>
           </div>
           {addedMessage && (
@@ -203,7 +203,7 @@ export default function ProductDetail() {
             to={`/configurator?base=${product.id}`}
             className="text-sm text-[#8B5E3C] hover:underline font-medium"
           >
-            Customise with the Configurator &rarr;
+            Personaliza con el configurador &rarr;
           </Link>
         </div>
       </div>

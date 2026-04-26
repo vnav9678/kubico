@@ -28,7 +28,7 @@ export default function Card({ product }: CardProps) {
 
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col transition-shadow hover:shadow-md">
-      <Link to={`/products/${product.id}`} className="block" aria-label={`View ${product.name}`}>
+      <Link to={`/products/${product.id}`} className="block" aria-label={`Ver ${product.name}`}>
         <ProductSVG
           productId={product.id}
           category={product.category}
@@ -52,10 +52,10 @@ export default function Card({ product }: CardProps) {
           <span className="text-xl font-bold text-[#2D6A4F]">€{product.price}</span>
           <div className="flex gap-2">
             <Link to={`/configurator?base=${product.id}`}>
-              <Button variant="ghost" size="sm">Configure</Button>
+              <Button variant="ghost" size="sm">Configurar</Button>
             </Link>
             <Button variant="primary" size="sm" onClick={handleAddToCart}>
-              Add to Cart
+              Añadir al carrito
             </Button>
           </div>
         </div>
